@@ -6,7 +6,7 @@ import axios from 'axios';
 function App() {
   const [count, setCount] = useState(0);
   //test to check if server proxy is working
-  axios.get('http://localhost:3000/api').then((res) => console.log(res.data));
+  axios.get('http://localhost:3001/api').then((res) => console.log(res.data));
 
   return (
     <div className="App">
