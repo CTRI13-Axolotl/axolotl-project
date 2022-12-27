@@ -1,9 +1,12 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import './App.css';
+import axios from 'axios';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  //test to check if server proxy is working
+  axios.get('http://localhost:3000/api').then((res) => console.log(res.data));
 
   return (
     <div className="App">
@@ -28,7 +31,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
