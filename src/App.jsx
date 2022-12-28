@@ -3,6 +3,8 @@ import reactLogo from './assets/react.svg';
 import './App.css';
 import axios from 'axios';
 
+import Pixi from './pixi/pixi.jsx'
+
 function App() {
   const [count, setCount] = useState(0);
   //test to check if server proxy is working
@@ -11,6 +13,9 @@ function App() {
   return (
     <div className="App">
       <div>
+        <div>
+          <Pixi />
+        </div>
         <a href="https://vitejs.dev" target="_blank">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
         </a>
