@@ -18,6 +18,7 @@ router.put('/clean', petController.cleanPet, (req, res) => {
   res.status(200).json(res.locals.cleanPet);
 });
 
+//may not need this route
 router.put('/poops', petController.poops, (req, res) => {
   res.status(200).json(res.locals.poops);
 });
@@ -26,6 +27,7 @@ router.put('/play', petController.playPet, (req, res) => {
   res.status(200).json(res.locals.playPet);
 });
 
+//may not need this route
 router.put('/x', petController.x, (req, res) => {
   res.status(200).json(res.locals.x);
 });
