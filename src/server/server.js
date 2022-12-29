@@ -1,26 +1,25 @@
 const path = require('path');
 const express = require('express');
-// const router = require('./lib/router');
+const petRouter = require('./routes/petRouter');
 const cors = require('cors');
 const { PORT = 3001 } = process.env;
 const app = express();
+const petController = require('./Controllers/petController.js');
 
 app.use(cors());
 // Middleware that parses json and looks at requests where the Content-Type header matches the type option.
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Serve app production bundle
+app.use(express.static(path.resolve(__dirname, '../src')));
+
 // Serve API requests from the router
+app.use('/api/pets', petRouter);
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', '../index.html'));
 });
-
-app.get('/api', (req, res) => {
-  res.status(200).send('server works!');
-});
-// Serve app production bundle
-// app.use(express.static('dist/client'));
 
 app.use((req, res) =>
   res.status(404).send("This is not the page you're looking for..."),
