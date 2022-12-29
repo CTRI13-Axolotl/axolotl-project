@@ -26,8 +26,8 @@ router.put('/play', petController.playPet, (req, res) => {
   res.status(200).json(res.locals.playPet);
 });
 
-router.put('/death', petController.death, (req, res) => {
-  res.status(200).json(res.locals.death);
+router.put('/x', petController.x, (req, res) => {
+  res.status(200).json(res.locals.x);
 });
 
 module.exports = router;
