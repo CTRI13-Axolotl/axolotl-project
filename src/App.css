@@ -50,12 +50,12 @@ border-radius: 10px;
 height: 400px;
 width: auto;
 top: -40px;
-left: 340px;
+left: 540px;
 position: absolute;
 }
 input{
   width:100%;
-  background-color:rgb(237, 230, 222);
+  background-color:rgb(192, 190, 187);
 }
 form{
 display: flex;
@@ -72,3 +72,25 @@ width: 50%;
 #buttonRow{
   margin: 0 auto;
 }
+.picOne{
+  max-width: 300px; 
+  max-height: 300px;
+}
+.picTwo{
+  max-width: 300px; 
+  max-height: 300px;
+}
+.picThree{
+  max-width: 300px; 
+  max-height: 300px;
+}
+/* .imageRow.resize{
+  height: auto; 
+  width: auto; 
+  max-width: 300px; 
+  max-height: 300px;
+  display:inline;
+  flex-direction:row;
+  justify-content: center;
+
+} */
