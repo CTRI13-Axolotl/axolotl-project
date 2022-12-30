@@ -5,7 +5,7 @@ const userController = {};
 
 //////////////REDIRECT TO SELECT PET
 
-userController.createUser(req, res, next) => {
+userController.createUser = (req, res, next) => {
     const {username, password} = req.body;
     const values = [username, password];
     const newUserQuery = 
@@ -24,4 +24,22 @@ userController.createUser(req, res, next) => {
   });
  };
 };
+
+userController.verifyUser = (req, res, next) => {
+  const {username, password} = req.body;
+  const values = [username, password];
+  const verifyQuery = 
+    "SELECT * FROM player WHERE player.username = $1 AND player.password = $2;";
+  db.query(verifyQuery, values)
+    .then((data) => {
+      (data === null) ? res.redirect('/login') : res.redirect('/');
+    })
+    .catch((err) => {
+      return next({
+        log: 'error in petController.addPet',
+        message: { error: err },
+    });
+  });
+};
+
 module.exports = userController;
