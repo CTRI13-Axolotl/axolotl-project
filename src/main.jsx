@@ -28,14 +28,15 @@ const router = createBrowserRouter([
   }
 ]);
 
-ReactDOM.render(
-  <RouterProvider router={router} />,
-  document.getElementById('root')
-);
-// render(<RouterProvider router={router} />, document.getElementById('root'));
+
 // ReactDOM.createRoot(document.getElementById('root')).render(
 //   // <React.StrictMode>
 //     // <App/>
 //     <RouterProvider router={router} />
 //   // </React.StrictMode>,
 // )
+
+ReactDOM.render(
+  <RouterProvider router={router} />,
+  document.getElementById('root')
+);
