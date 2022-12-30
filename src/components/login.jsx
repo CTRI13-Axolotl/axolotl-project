@@ -1,6 +1,6 @@
     import react from 'react'
     import LoginButton from './Glogin';
-    import Logout from './Glogout';
+    import LogoutButton from './Glogout';
     import {useEffect} from 'react';
     import { gapi } from 'gapi-script';
     
@@ -65,6 +65,8 @@ class Login extends react.Component{
                   <input className='password' type='password' name='password' placeholder='password...' required onChange={this.handleChange} />
                   <button className='login' onSubmit={this.handleSubmit}> Log in</button>
                   <button className='register' onSubmit={this.handleSubmit}> Register </button>
+                  <LoginButton />
+                  <LogoutButton />
                 </form>
             </div>
         )
