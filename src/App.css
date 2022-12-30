@@ -72,15 +72,15 @@ width: 50%;
 #buttonRow{
   margin: 0 auto;
 }
-.picOne{
+#picOne{
   max-width: 300px; 
   max-height: 300px;
 }
-.picTwo{
+#picTwo{
   max-width: 300px; 
   max-height: 300px;
 }
-.picThree{
+#picThree{
   max-width: 300px; 
   max-height: 300px;
 }
