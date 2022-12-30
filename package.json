@@ -11,20 +11,22 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@pixi/react-pixi": "^7.0.0-alpha.0",
+    "@inlet/react-pixi": "^6.8.0",
     "axios": "^1.2.1",
     "concurrently": "^7.6.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "nodemon": "^2.0.20",
-    "pixi.js": "^7.0.5",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "pixi.js": "^6.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^6.6.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react": "^3.0.0",
+    "sass": "^1.57.1",
     "vite": "^4.0.0"
   }
 }
