@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.scss';
 
 import App from './App';
@@ -29,10 +29,14 @@ const router = createBrowserRouter([
 ]);
 
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  // <React.StrictMode>
-    // <App/>
-    <RouterProvider router={router} />
-  // </React.StrictMode>,
-)
+// ReactDOM.createRoot(document.getElementById('root')).render(
+//   // <React.StrictMode>
+//     // <App/>
+//     <RouterProvider router={router} />
+//   // </React.StrictMode>,
+// )
 
+ReactDOM.render(
+  <RouterProvider router={router} />,
+  document.getElementById('root')
+);
