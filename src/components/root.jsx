@@ -11,6 +11,9 @@ export default function Root (){
             <Link to={"/login"}>
               <button id="nav-button">Login</button>
             </Link>
+            <Link to={"/createPet"}>
+              <button id='nav-button'>CreatePet</button>
+            </Link>
             <Link to={"/non-existing-page"}>
               <button id="nav-button">Error</button>
             </Link>
