@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', '../index.html'));
 });
 
-app.get('/login', userController.verifyUser = (req, res) => {
+app.get('/login', userController.verifyUser, (req, res) => {
   res.status(200);
 })
 
