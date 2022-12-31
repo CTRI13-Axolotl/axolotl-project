@@ -72,25 +72,68 @@ width: 50%;
 #buttonRow{
   margin: 0 auto;
 }
-.picOne{
-  max-width: 300px; 
-  max-height: 300px;
+#picOne{
+  max-width: 250px; 
+  max-height: 200px;
 }
-.picTwo{
-  max-width: 300px; 
-  max-height: 300px;
+#picTwo{
+  max-width: 250px; 
+  max-height: 200px;
 }
-.picThree{
-  max-width: 300px; 
-  max-height: 300px;
+#picThree{
+  max-width: 250px; 
+  max-height: 200px;
 }
-/* .imageRow.resize{
-  height: auto; 
-  width: auto; 
-  max-width: 300px; 
-  max-height: 300px;
-  display:inline;
-  flex-direction:row;
-  justify-content: center;
-
-} */
+.imageRow{
+  display: flex;
+ position: absolute;
+ top: 570px;
+ left: 475px;
+}
+.petContainer{
+  position: absolute;
+  border: 1px solid black;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 530px;
+  padding: 10px 20px;
+border-radius: 10px;
+  background-color: black;
+  display: inline-block;
+  height: 500px;
+}
+.stats{
+  width: 100%;
+  max-width: 275px;
+  padding: 0 20px;
+  position: relative;
+  left: 2%;
+}
+.stat-name{
+  font-size: 18px;
+  font-weight: 700;
+  color: black;
+  text-transform: uppercase;
+  margin: 20px 0;
+}
+.stat-bar{
+  height: 14px;
+  background:#8b5563;
+  border-radius: 3px;
+}
+.stat-per{
+  height: 14px;
+  background: #1d7fa8;
+  border-radius: 3px;
+  position: relative;
+}
+#eatStat{
+  max-width:20%;
+}
+#poopStat{
+  max-width:35%;
+}
+#playStat{
+  max-width:50%;
+}
