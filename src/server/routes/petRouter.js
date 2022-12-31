@@ -1,5 +1,6 @@
 const express = require('express');
 const petController = require('../controllers/petController');
+const userController = require('../controllers/userController');
 const router = express.Router();
 
 router.get('/', petController.currentPet, (req, res) => {
@@ -7,7 +8,7 @@ router.get('/', petController.currentPet, (req, res) => {
 });
 
 router.post('/', petController.addPet, (req, res) => {
-  res.status(200).json(res.locals.newPet);
+  res.status(200).redirect('/profile').json(res.locals.newPet);
 });
 
 router.put('/feed', petController.feedPet, (req, res) => {

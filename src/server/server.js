@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const petRouter = require('./routes/petRouter');
+const userController = require('./controllers/userController');
 const cors = require('cors');
 const { PORT = 3001 } = process.env;
 const app = express();
@@ -20,6 +21,14 @@ app.use('/api/pets', petRouter);
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', '../index.html'));
 });
+
+app.get('/login', userController.verifyUser, (req, res) => {
+  res.status(200);
+})
+
+app.post('/login', userController.createUser, (req, rest) => {
+  res.status(200).redirect('/'); //THIS IS THE PROFILE PAGE?? "/"
+}); //when you land at '/' 
 
 app.use((req, res) =>
   res.status(404).send("This is not the page you're looking for..."),
