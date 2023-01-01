@@ -113,7 +113,8 @@ const petController = {};
 //and it will update health and/or x_date status
 //depending on how much time has elapsed since last fed, cleaned, or played
 petController.currentPet = async (req, res, next) => {
-  const { player_id } = req.body;
+  const { player_id } = req.query;
+  // console.log('player_id in currentPet controller', player_id);
   try {
     //query to set current to false if x_date is not null
     const curPetsUpdateQ =
@@ -192,6 +193,7 @@ petController.feedPet = (req, res, next) => {
 //also adds 20 health points without exceeding 100;
 petController.cleanPet = (req, res, next) => {
   const petId = [req.body._id];
+  console.log('petId in cleanPet: ', petId);
   const cleanPetQuery =
     "UPDATE pet SET last_cleaned = CURRENT_TIMESTAMP, health = LEAST(health+20, 100), num_poop=0 WHERE _id=$1 AND last_cleaned < CURRENT_TIMESTAMP - interval '1 hour' RETURNING *;";
   db.query(cleanPetQuery, petId)

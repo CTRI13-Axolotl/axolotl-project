@@ -1,10 +1,39 @@
+body {
+  background: hsl(345, 75%, 94%);
+  margin: 0;
+}
 #root {
   margin: 0;
   padding: 0;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background: #fbe3e9;
-  height: 100vh;
+  background: hsl(345, 75%, 94%);
+  height: 100%;
   overflow: hidden;
+}
+
+#navbar {
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+  justify-content: flex-end;
+  background: #f0628fc4;
+}
+
+#navbar button {
+  height: 50px;
+  /* border-radius: 5px !important; */
+  background-color: transparent;
+  color: rgb(246, 243, 243);
+  font-size: larger;
+  font-family: Rubik;
+  border: none;
+  margin: 5px;
+}
+
+.nav-button:hover {
+  color: white !important;
+  font-weight: bold;
+  transition: 0.2s;
 }
 
 /* .login {
@@ -25,11 +54,13 @@
 .container {
   /* position: absolute; */
   /* border: 1px solid black; */
-  margin: -30px auto 0 auto;
+  margin: -50px auto 0 auto;
+  z-index: 999;
   /* top: 50%;
   left: 50%; */
   /* transform: translate(-50%, -50%); */
   width: 400px;
+  height: auto;
   padding: 10px 20px;
   border-radius: 10px;
   box-shadow: 2px 2px 4px rgb(80, 80, 80);
@@ -67,8 +98,8 @@
 } */
 #photo {
   height: auto;
-  width: 350px;
-  margin: 0 auto;
+  width: 325px;
+  margin: 0px auto 0px auto;
   /* top: -40px;
 left: 540px;
 position: absolute; */
@@ -94,6 +125,7 @@ form {
   flex-direction: column;
   justify-content: center;
 }
+
 /* .container #buttonRow{
 width: 332px;
 text-align: center;
@@ -114,48 +146,105 @@ width: 50%;
   align-self: center;
 }
 
-#picOne {
-  max-width: 250px;
-  max-height: 200px;
+.actionButtons {
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
+  /* max-height: 200px; */
+  margin: 10px;
+  border: 5px solid transparent;
+  box-shadow: 2px 2px 2px rgb(80, 80, 80);
 }
-#picTwo {
-  max-width: 250px;
-  max-height: 200px;
+
+.actionButtons:hover {
+  border: 5px solid #f06290;
+  box-shadow: 2px 2px 2px black;
+  transition: 0.2s;
 }
-#picThree {
-  max-width: 250px;
-  max-height: 200px;
+
+.actionButtons:active,
+.actionButtons:focus {
+  border: 5px solid #fbd704;
 }
+
+#profileDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+#leftColumn {
+  width: 250px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+#invisibleColumn {
+  min-width: 80px;
+  max-width: 200px;
+}
+
+#profileHeader {
+  color: rgb(49, 49, 49);
+}
+
+.actionButtonDiv {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgb(80, 80, 80);
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: Rubik, Geneva, sans-serif;
+}
+
+.actionButtonDiv:hover {
+  color: rgb(132, 132, 132);
+  transition: 0.2s;
+}
+
 .imageRow {
   display: flex;
-  position: absolute;
-  top: 570px;
-  left: 475px;
+  flex-direction: row;
+  justify-content: center;
+  /* position: absolute; */
+  /* top: 570px;
+  left: 475px; */
 }
 .petContainer {
-  position: absolute;
+  /* position: absolute; */
   border: 1px solid black;
-  top: 40%;
+  /* top: 40%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   width: 530px;
   padding: 10px 20px;
   border-radius: 10px;
-  background-color: black;
+  background-color: rgb(32, 31, 31);
   display: inline-block;
   height: 500px;
 }
 .stats {
   width: 100%;
   max-width: 275px;
-  padding: 0 20px;
-  position: relative;
-  left: 2%;
+  /* padding: 0 20px; */
+  /* position: relative;
+  left: 2%; */
 }
+
+.petData {
+  color: rgb(80, 80, 80);
+  margin: 5px 0px;
+}
+
 .stat-name {
   font-size: 18px;
   font-weight: 700;
-  color: black;
+  color: rgb(80, 80, 80);
   text-transform: uppercase;
   margin: 20px 0;
 }
@@ -168,14 +257,18 @@ width: 50%;
   height: 14px;
   background: #1d7fa8;
   border-radius: 3px;
-  position: relative;
+  /* position: relative; */
 }
-#eatStat {
+/* #healthStat {
   max-width: 20%;
-}
-#poopStat {
+} */
+/* #poopStat {
   max-width: 35%;
 }
 #playStat {
   max-width: 50%;
+} */
+
+.tooSoon {
+  color: rgba(255, 0, 0, 0.64);
 }

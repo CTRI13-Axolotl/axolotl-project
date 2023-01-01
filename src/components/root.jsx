@@ -7,14 +7,14 @@ export default function Root() {
       <div id="header">
         <nav id="navbar">
           <Link to={'/'}>
-            <button id="nav-button">Profile</button>
+            <button className="nav-button">Profile</button>
           </Link>
           <Link to={'/login'}>
-            <button id="nav-button">Login</button>
+            <button className="nav-button">Login</button>
           </Link>
-          <Link to={'/non-existing-page'}>
+          {/* <Link to={'/non-existing-page'}>
             <button id="nav-button">Error</button>
-          </Link>
+          </Link> */}
           <LogoutButton />
         </nav>
       </div>
