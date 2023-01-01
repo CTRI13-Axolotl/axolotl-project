@@ -7,9 +7,10 @@
   overflow: hidden;
 }
 
-.login {
+/* .login {
   background-color: #faa919;
-}
+} */
+
 .login:hover,
 .register:hover {
   background-color: #fbd605;
@@ -23,7 +24,7 @@
 
 .container {
   /* position: absolute; */
-  border: 1px solid black;
+  /* border: 1px solid black; */
   margin: -30px auto 0 auto;
   /* top: 50%;
   left: 50%; */
@@ -31,6 +32,7 @@
   width: 400px;
   padding: 10px 20px;
   border-radius: 10px;
+  box-shadow: 2px 2px 4px rgb(80, 80, 80);
   background-color: #f06290;
   display: inline-block;
 }
@@ -45,13 +47,24 @@
   padding: 0 40px;
   box-sizing: border-box;
 }
-.container button {
-  padding: 0 40px;
-  box-sizing: border-box;
-}
+.login,
 .register {
+  padding: 0 40px;
+  margin: 2px;
+  box-sizing: border-box;
+  outline: none;
+  color: #554d6b;
+  height: 25px;
+  border-radius: 3px;
+  /* border: 1px solid #554d6b; */
+  border: none;
+  box-shadow: 2px 2px 2px rgb(80, 80, 80);
   background-color: #faa919;
 }
+
+/* .register {
+  background-color: #faa919;
+} */
 #photo {
   height: auto;
   width: 350px;
@@ -64,11 +77,17 @@ position: absolute; */
 .googs {
   display: flex;
   flex-direction: row;
-  margin: 0 auto;
+  margin: 0px auto;
 }
+
 input {
   width: 100%;
-  background-color: rgb(224, 222, 219);
+  background-color: rgb(232, 229, 227);
+  margin-bottom: 8px;
+  height: 25px;
+  box-shadow: 2px 2px 2px rgb(80, 80, 80);
+  border-radius: 5px;
+  border: 1px solid lightgray;
 }
 form {
   display: flex;
@@ -83,7 +102,7 @@ width: 50%;
 } */
 
 #buttonRow {
-  margin: 10px auto;
+  margin: 3px auto 10px auto;
 }
 
 .hidden {

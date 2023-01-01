@@ -4,8 +4,6 @@ import LogoutButton from './Glogout';
 import { useEffect } from 'react';
 import { gapi } from 'gapi-script';
 import axios from 'axios';
-// import { useHistory } from 'react-router-dom';
-import { redirect } from 'react-router-dom';
 
 const clientId =
   '564068043512-qubvvt69k54kebe9iqt40uca1fd8jshh.apps.googleusercontent.com';
@@ -19,6 +17,7 @@ class Login extends react.Component {
       createPetUrl: 'http://localhost:9000/',
       invalid: 'hidden',
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToUrl = this.navigateToUrl.bind(this);
   }
