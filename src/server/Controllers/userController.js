@@ -18,7 +18,6 @@ userController.createUser = async (req, res, next) => {
       .then((data) => {
         //////////////REDIRECT TO SELECT PET
         res.locals.newUser = data.rows[0]._id;
-        // console.log('line21 in userController:', res.locals.newUser);
         return next();
       })
       .catch((err) => {
@@ -38,9 +37,8 @@ userController.verifyUser = async (req, res, next) => {
   console.log('username: ', username);
   db.query(verifyQuery, values)
     .then(async (user) => {
-      // console.log('user in verifyuser', user.rows);
       if (!user) return res.status(400).json({ msg: 'User not found' });
-      console.log('comparing password');
+      // console.log('comparing password');
       const valid = await bcrypt.compare(password, user.rows[0].password);
       if (valid) {
         console.log(user.rows);
