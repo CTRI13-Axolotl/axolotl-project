@@ -37,6 +37,7 @@
 .container h1 {
   text-align: center;
   color: whitesmoke;
+  font-family: Rubik, Geneva, sans-serif;
   padding: 0 0 20px 0;
   border-bottom: 1px solid silver;
 }
@@ -67,7 +68,7 @@ position: absolute; */
 }
 input {
   width: 100%;
-  background-color: rgb(192, 190, 187);
+  background-color: rgb(224, 222, 219);
 }
 form {
   display: flex;

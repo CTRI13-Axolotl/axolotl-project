@@ -14,10 +14,7 @@ class Login extends react.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      email: '',
-      password: '',
       loginURL: 'http://localhost:3001/login',
-      userId: '',
       profileUrl: 'http://localhost:9000/',
       createPetUrl: 'http://localhost:9000/',
       invalid: 'hidden',
@@ -39,12 +36,12 @@ class Login extends react.Component {
     const userObj = { username, password };
     if (e.target.id === 'login') {
       axios
-        .get(this.state.loginURL, userObj)
+        .get(this.state.loginURL, { params: userObj })
         .then((response) => {
-          console.log(response);
-          //   const userId = response.data;
-          //   window.sessionStorage.setItem('userId', userId);
-          //   return this.navigateToUrl(this.state.profileUrl);
+          const userId = response.data;
+          //   console.log('userId line 46: ', userId);
+          window.sessionStorage.setItem('userId', userId);
+          return this.navigateToUrl(this.state.profileUrl);
         })
         .catch((error) => {
           console.error('There was an error!', error);
@@ -59,7 +56,7 @@ class Login extends react.Component {
           return this.navigateToUrl(this.state.createPetUrl);
         })
         .catch((error) => {
-          console.error('There was an error!', error);
+          console.error('There was an error!', error.response.data);
           this.setState({ ...this.state, invalid: '' });
         });
     }
@@ -100,7 +97,6 @@ class Login extends react.Component {
   // };
 
   render() {
-    console.log('invalid: ', this.state.invalid);
     return (
       <div className="login-container">
         {/* //place our logo or main thing here */}
@@ -145,7 +141,7 @@ class Login extends react.Component {
             </div>
             <div className="googs">
               <LoginButton />
-              <LogoutButton />
+              {/* <LogoutButton /> */}
             </div>
           </form>
         </div>

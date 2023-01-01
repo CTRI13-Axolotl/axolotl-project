@@ -27,7 +27,6 @@ app.get('/login', userController.verifyUser, (req, res) => {
 });
 
 app.post('/login', userController.createUser, (req, res) => {
-  console.log('line 30 in server');
   // res.status(200).redirect('/'); //THIS IS THE PROFILE PAGE?? "/"
   res.status(200).json(res.locals.newUser);
 }); //when you land at '/'
