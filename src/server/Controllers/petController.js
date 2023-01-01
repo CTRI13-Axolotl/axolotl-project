@@ -113,7 +113,8 @@ const petController = {};
 //and it will update health and/or x_date status
 //depending on how much time has elapsed since last fed, cleaned, or played
 petController.currentPet = async (req, res, next) => {
-  const { player_id } = req.body;
+  const { player_id } = req.query;
+  // console.log('player_id in currentPet controller', player_id);
   try {
     //query to set current to false if x_date is not null
     const curPetsUpdateQ =
