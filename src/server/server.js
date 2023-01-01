@@ -24,11 +24,13 @@ app.get('/', (req, res) => {
 
 app.get('/login', userController.verifyUser, (req, res) => {
   res.status(200);
-})
+});
 
-app.post('/login', userController.createUser, (req, rest) => {
-  res.status(200).redirect('/'); //THIS IS THE PROFILE PAGE?? "/"
-}); //when you land at '/' 
+app.post('/login', userController.createUser, (req, res) => {
+  console.log('line 30 in server');
+  // res.status(200).redirect('/'); //THIS IS THE PROFILE PAGE?? "/"
+  res.status(200).json(res.locals.newUser);
+}); //when you land at '/'
 
 app.use((req, res) =>
   res.status(404).send("This is not the page you're looking for..."),
