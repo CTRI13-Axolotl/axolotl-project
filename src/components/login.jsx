@@ -14,6 +14,7 @@ class Login extends react.Component {
     this.state = {
       loginURL: 'http://localhost:3001/login',
       profileUrl: 'http://localhost:9000/',
+      //Update URL below to the appropriate Create Pet URL
       createPetUrl: 'http://localhost:9000/',
       invalid: 'hidden',
     };
@@ -21,11 +22,6 @@ class Login extends react.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToUrl = this.navigateToUrl.bind(this);
   }
-
-  //   handleChange = (e) => {
-  //     const { name, value } = e.target;
-  //     this.setState({ [name]: value });
-  //   };
 
   handleSubmit(e) {
     e.preventDefault();

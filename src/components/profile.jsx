@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function Profile() {
+  //setting up state with all the petData
   const [petName, setPetName] = useState('');
   const [health, setHealth] = useState(0);
   const [userId, setUserId] = useState('');
@@ -10,19 +11,29 @@ function Profile() {
   const [petType, setPetType] = useState('');
   const [petId, setPetId] = useState('');
   const [numPoop, setNumPoop] = useState(0);
-  const [tooSoon, setTooSoon] = useState('tooSoon hidden');
-  const [action, setAction] = useState('');
   const [xDate, setXDate] = useState('');
+  //tooSoon will toggle a hidden class. if eat clean or play buttons
+  //are pressed within 1 hr, the text "too soon to <action here>" will appear
+  const [tooSoon, setTooSoon] = useState('tooSoon hidden');
+  //this defines the desired action (eat, clean, play) during the click event
+  const [action, setAction] = useState('');
 
   useEffect(() => {
+    //userId is in session storage, getItem will get the value in session storage
     const newUserId = window.sessionStorage.getItem('userId');
+    //update state with the current userId
     setUserId(newUserId);
+    //when making a get request to axios, the data you want to send needs to be
+    //in an object with the property params
     const userObj = { params: { player_id: newUserId } };
+
+    //get request to get all current pet data
     axios
       .get('http://localhost:3001/api/pets/', userObj)
       .then((res) => {
+        //store all petData in state
         const petData = res.data[0];
-        console.log(res.data[0]);
+        // console.log(res.data[0]);
         setPetName(petData.name);
         const birthdate = new Date(petData.birthdate);
         setBirthday(birthdate.toLocaleDateString());
@@ -37,16 +48,22 @@ function Profile() {
       });
   });
 
+  //click handler when user wants to eat, clean, or play with pet
   const performAction = (e) => {
     const action = e.target.alt;
     const url = `http://localhost:3001/api/pets/${action}`;
     axios
       .put(url, { _id: petId })
       .then((res) => {
+        //check if health is a property in the response
         if (Object.hasOwn(res.data, 'health')) {
+          //update health in state with new health data
           setHealth(res.data.health);
         } else {
+          //otherwise, update state with the desired action (eat, clean, play)
           setAction(action);
+          //unhide the div with the text 'Too soon to <insert action here>'
+          //by changing the class stored in state
           setTooSoon('tooSoon');
         }
       })
@@ -70,7 +87,7 @@ function Profile() {
         </h3>
         <div className="stats">
           <div className="eating">
-            <div className="stat-name">Health</div>
+            <div className="stat-name">Health: {health}%</div>
             <div className="stat-bar">
               <div
                 className="stat-per"
