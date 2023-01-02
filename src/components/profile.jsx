@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Pixi from '../pixi/pixi';
 
 function Profile() {
   //setting up state with all the petData
@@ -25,7 +26,7 @@ function Profile() {
   useEffect(() => {
     //userId is in session storage, getItem will get the value in session storage
     const newUserId = window.sessionStorage.getItem('userId');
-    //update state with the current userId
+    // //update state with the current userId
     setUserId(newUserId);
     //when making a get request to axios, the data you want to send needs to be
     //in an object with the property params
@@ -81,6 +82,7 @@ function Profile() {
         console.log('ERROR: ', error);
       });
   };
+  console.log(petType);
 
   const handleNewPet = (e) => {
     e.preventDefault();
@@ -134,14 +136,16 @@ function Profile() {
         </div>
       </div>
       <div id="rightColumn">
-        <div className="petContainer"></div>
+        <div className="petContainer">
+          <Pixi petType={petType} numPoop={numPoop} />
+        </div>
         <div className={xDate.abandonClass}>
           <div className="abandonText">{petName} has abandoned you</div>
           <button onClick={handleNewPet} className="newPetButton">
             Create New Pet
           </button>
         </div>
-        <div className={xDate.imageRowClass}>
+        <div className="imageRow">
           <div id="EatButton" className="actionButtonDiv">
             Feed
             <img
