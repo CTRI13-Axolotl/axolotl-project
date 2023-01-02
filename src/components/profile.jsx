@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Pixi from '../pixi/pixi';
 
 function Profile() {
   //setting up state with all the petData
