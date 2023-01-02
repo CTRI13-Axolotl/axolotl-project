@@ -7,9 +7,11 @@ class createPet extends react.Component {
     this.state = {
       createPetUrl: 'http://localhost:3001/api/pets',
       profileUrl: 'http://localhost:9000/',
+      options : ['black', 'blue','brown','calico','creme','gray','seal_point','tabby','white']
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToUrl = this.navigateToUrl.bind(this);
+    this.handleOption = this.handleOption.bind(this)
   }
 
   navigateToUrl(url) {
@@ -38,31 +40,60 @@ class createPet extends react.Component {
       });
   }
 
+  handleOption(e){
+    e.preventDefault();
+    const petType = e.target.value;
+    if (petType === 'cat'){
+      const catColors = ['black', 'blue','brown','calico','creme','gray','seal_point','tabby','white']
+      this.setState({...this.state,options: catColors});
+    }
+    if(petType === 'axolotl'){
+      const axColors = ['bronze','coral','green','pink','turquoise','violet']
+      this.setState({...this.state,options: axColors});
+    }
+    // bronze
+    // coral
+    // green
+    // pink
+    // turquoise
+    // violet
+  }
+
   render() {
+    const colorsArr = [];
+    for (let i = 0; i < this.state.options.length; i++){
+      colorsArr.push(<option value={`${this.state.options[i]}`}>{`${this.state.options[i]}`}</option>)
+    }
     return (
-      <div>
+      <div className="createPetDiv">
         <div className="containerCP">
           <h1 id="cpheader">CreatePet</h1>
-          <form>
+          <form className="createPetForm">
             <input
               className="petName"
               type="petName"
               name="petName"
-              placeholder="petName..."
+              placeholder="Enter a pet name..."
             />
             <label htmlFor="Pets">Choose a pet:</label>
-            <select name="pets" id="pets">
-              <option value="tiger">Tiger</option> //petType = tiger_white
-              <option value="cat">Cat</option>
+            <select name="pets" id="pets" onChange={this.handleOption}> 
+              <option value="cat">Cat</option>  {/* //petType = tiger_white */}
               <option value="axolotl">Axolotl</option>
-              <option value="dog">Dog</option>
             </select>
-            <label htmlFor="petcolor">Choose a pets color:</label>
+
+            <label htmlFor="petcolor">Choose a color:</label>
             <select name="petsColor" id="petsColor">
+              {/* <option value="black">Black</option>
+              <option value="blue">Blue</option>
+              <option value="brown">Brown</option>
+              <option value="calico">Calico</option>
+              <option value="cream">Cream</option>
+              <option value="grey">Grey</option>
+              <option value="seal_point">SealPoint</option>
+              <option value="tabby">Tabby</option>
               <option value="white">White</option>
-              <option value="black">Black</option>
-              <option value="pink">Pink</option>
-              <option value="ruby">Ruby</option>
+              <option value="pink">Pink</option> */}
+               {colorsArr} 
             </select>
 
             <button className="confirm" onClick={this.handleSubmit}>
@@ -78,11 +109,6 @@ class createPet extends react.Component {
                 className="geico"
                 src="https://www.bellacor.com/dw/image/v2/BFKX_PRD/on/demandware.static/-/Sites-masterCatalog_bellacor/default/dwade4b922/images/large/599ARTAC0288RV2.jpg?sw=600"
                 alt="geico"
-              />
-              <img
-                className="family"
-                src="https://i.etsystatic.com/7829877/r/il/4d214e/838807260/il_794xN.838807260_i8v4.jpg"
-                alt="family"
               />
             </div>
           </form>
