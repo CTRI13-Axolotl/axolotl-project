@@ -12,9 +12,11 @@ export default function Root() {
           <Link to={'/login'}>
             <button className="nav-button">Login</button>
           </Link>
-          <Link to={"/createPet"}>
-            <button id='nav-button'>CreatePet</button>
-          </Link>
+          {/* <Link to={'/createPet'}>
+            <button className="nav-button" id="nav-button">
+              CreatePet
+            </button>
+          </Link> */}
           <LogoutButton />
         </nav>
       </div>
