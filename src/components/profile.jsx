@@ -95,7 +95,7 @@ function Profile() {
         return window.location.assign('http://localhost:9000/login');
       });
   };
-
+  console.log('petType in line 98: ', petType);
   return (
     <div id="profileDiv">
       <div id="leftColumn">
