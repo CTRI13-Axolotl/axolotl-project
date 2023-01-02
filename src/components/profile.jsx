@@ -127,7 +127,7 @@ function Profile() {
       <div id="rightColumn">
         <div className="petContainer"></div>
         <div className={xDate.abandonClass}>
-          <div className="abandonText">Your Pet Has Abandoned You</div>
+          <div className="abandonText">{petName} Has Abandoned You</div>
           <button onClick={handleNewPet} className="newPetButton">
             Create New Pet
           </button>
