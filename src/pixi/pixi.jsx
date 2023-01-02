@@ -7,6 +7,7 @@ import { getRandomX } from './Utilities.jsx';
 
 import Cat from './Cat';
 import Axolotl from './Axolotl';
+import Explosion from './Explosion';
 
 import catBackground from '../assets/backgrounds/cat_background.jpg';
 import axolotlBackground from '../assets/backgrounds/axolotl_background.jpg';
@@ -31,6 +32,7 @@ const getPets = (petSpecies, petColor) => {
   const petComponents = {
     'cat': <Cat color={petColor} key={petColor} />,
     'axolotl': <Axolotl color={petColor} key={petColor} />,
+    'explosion': <Explosion key={'explosion'} />,
   }
 
   const pet = petComponents[petSpecies];
@@ -42,7 +44,7 @@ const getPoops = (numPoops) => {
   const poops = [];
 
   for (let i = 0; i < numPoops; i++) {
-    poops.push(<Sprite image={poopSprite} anchor={-8} x={getRandomX(-200, 300)} />);
+    poops.push(<Sprite image={poopSprite} anchor={-8} x={getRandomX(-100, 300)} />);
   }
 
   return poops;
@@ -50,13 +52,14 @@ const getPoops = (numPoops) => {
 
 
 export default function Pixi(props) {
+  console.log("props: ", props);
 
   if (!props.petType) return null;
 
   console.log('props in line 36: ', props)
 
   const petType = props.petType.split('_');
-  const petSpecies = petType[0];
+  const petSpecies = props.xDate.xDate ? 'explosion' :  petType[0];
   const petColor = petType[1];
 
   const width = getWidth();
