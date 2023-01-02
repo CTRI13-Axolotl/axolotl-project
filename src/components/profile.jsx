@@ -9,10 +9,14 @@ function Profile() {
   const [health, setHealth] = useState(0);
   const [userId, setUserId] = useState('');
   const [birthday, setBirthday] = useState('');
-  const [petType, setPetType] = useState('cat_white');
+  const [petType, setPetType] = useState('');
   const [petId, setPetId] = useState('');
   const [numPoop, setNumPoop] = useState(0);
-  const [xDate, setXDate] = useState('');
+  const [xDate, setXDate] = useState({
+    xDate: '',
+    imageRowClass: 'imageRow',
+    abandonClass: 'hidden',
+  });
   //tooSoon will toggle a hidden class. if eat clean or play buttons
   //are pressed within 1 hr, the text "too soon to <action here>" will appear
   const [tooSoon, setTooSoon] = useState('tooSoon hidden');
@@ -42,12 +46,18 @@ function Profile() {
         setHealth(petData.health);
         setPetType(petData.pet_type);
         setPetId(petData._id);
-        setXDate(petData.x_date);
+        if (petData.x_date !== null) {
+          setXDate({
+            xDate: petData.x_date,
+            imageRowClass: 'imageRow hidden',
+            abandonClass: 'abandon',
+          });
+        }
       })
       .catch((error) => {
         console.log('ERROR: ', error);
       });
-  });
+  }, [petName, health, userId, petId, numPoop]);
 
   //click handler when user wants to eat, clean, or play with pet
   const performAction = (e) => {
@@ -74,6 +84,21 @@ function Profile() {
   };
   console.log(petType);
 
+  const handleNewPet = (e) => {
+    e.preventDefault();
+    axios
+      .put('http://localhost:3001/api/pets/update', { petId: petId })
+      .then((res) => {
+        console.log(res.data);
+        return window.location.assign('http://localhost:9000/login');
+      })
+      .catch((error) => {
+        console.log('ERROR: ', error);
+        return window.location.assign('http://localhost:9000/login');
+      });
+  };
+  console.log('petType in line 98: ', petType);
+  
   return (
     <div id="profileDiv">
       <div id="leftColumn">
@@ -104,11 +129,11 @@ function Profile() {
       </div>
       <div id="rightColumn">
         <div className="petContainer">
-          <Pixi petType={petType} />
+          <Pixi petType={petType} numPoop={numPoop} />
         </div>
         <div className="imageRow">
           <div id="EatButton" className="actionButtonDiv">
-            Eat
+            Feed
             <img
               className="actionButtons"
               id="picOne"

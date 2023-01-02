@@ -6,11 +6,14 @@ import { Loader } from '@pixi/loaders';
 import { generateAtlas, generateAnimation } from './Utilities.jsx';
 
 import Cat from './Cat';
+import Axolotl from './Axolotl';
 
 import catBackground from '../assets/backgrounds/cat_background.jpg';
+import axolotlBackground from '../assets/backgrounds/axolotl_background.jpg';
 
 const backgrounds = {
   'cat': catBackground,
+  'axolotl': axolotlBackground,
 }
 
 const getWidth = () => {
@@ -24,7 +27,8 @@ const getHeight = () => {
 const getPets = (petSpecies, petColor) => {
 
   const petComponents = {
-    'cat': <Cat color={petColor} />,
+    'cat': <Cat color={petColor} key={petColor} />,
+    'axolotl': <Axolotl color={petColor} key={petColor} />,
   }
 
   const pet = petComponents[petSpecies];
@@ -33,6 +37,9 @@ const getPets = (petSpecies, petColor) => {
 
 
 export default function Pixi(props) {
+
+  if (!props.petType) return null;
+
   console.log('props in line 36: ', props)
 
   const petType = props.petType.split('_');

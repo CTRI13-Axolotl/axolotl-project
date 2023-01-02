@@ -16,7 +16,7 @@ export const generateAtlas = (fileWidth, fileHeight, imageName, scale) => {
 }
 
 // Create array of frames to be used as an animation and add to a given atlas
-export const generateAnimation = (atlas, animationName, animationWidth, animationHeight, rowSize, colSize, startCol, numFrames, reverse = false) => {
+export const generateAnimation = (atlas, animationName, animationWidth, animationHeight, rowSize, colSize, startCol, numFrames) => {
   // Array to hold each frame of an animation to be added to the atlas later
   const frames = [];
   // Count to keep track of total number of frames (used when a row of frames might not fill every column)
@@ -44,7 +44,7 @@ export const generateAnimation = (atlas, animationName, animationWidth, animatio
     }
   }
 
-  if (reverse) frames.reverse();
+  // if (reverse) frames.reverse();
 
   console.log("frames: ", frames);
   console.log(count);

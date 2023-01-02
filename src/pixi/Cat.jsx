@@ -1,7 +1,7 @@
 import { useApp, AnimatedSprite } from '@inlet/react-pixi';
 import { useRef, useState } from 'react';
-import * as PIXI from 'pixi.js'
-import { generateAtlas, generateAnimation } from './Utilities'
+import * as PIXI from 'pixi.js';
+import { generateAtlas, generateAnimation } from './Utilities';
 
 import cat_black from '../assets/spritesheets/cat/cat_black.png';
 import cat_blue from '../assets/spritesheets/cat/cat_blue.png';
@@ -48,7 +48,7 @@ export default function Cat(props) {
   generateAnimation(atlas, "walk_left", 32, 32, 4, 1, 13, 4);
   generateAnimation(atlas, "walk_right", 32, 32, 4, 1, 9, 4);
   generateAnimation(atlas, "lay_down", 32, 32, 4, 3, 0, 9);
-  // generateAnimation(atlas, "stand_up", 32, 32, 4, 3, 0, 9, true);
+  // generateAnimation(atlas, "stand_up", 32, 32, 4, 3, 0, 9);
 
   console.log("atlas: ", atlas)
 
@@ -79,7 +79,8 @@ export default function Cat(props) {
       isPlaying={true}
       anchor={-1.5}
       // x={-30}
-      x={300}
+      // x={300}
+      key={props.color}
     />
   )
 }
