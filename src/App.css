@@ -1,67 +1,131 @@
-#root{
-margin: 0;
-padding: 0;
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-background: #fbe3e9;
-height: 100vh;
-overflow: hidden;
+body {
+  background: hsl(345, 75%, 94%);
+  margin: 0;
+}
+#root {
+  margin: 0;
+  padding: 0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background: hsl(345, 75%, 94%);
+  height: 100%;
+  overflow: hidden;
 }
 
-.login{
-background-color: #faa919;
+#navbar {
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+  justify-content: flex-end;
+  background: #f0628fc4;
+}
 
+#navbar button {
+  height: 50px;
+  /* border-radius: 5px !important; */
+  background-color: transparent;
+  color: rgb(246, 243, 243);
+  font-size: larger;
+  font-family: Rubik;
+  border: none;
+  margin: 5px;
 }
-.login:hover,.register:hover{
-background-color: #fbd605;
+
+.nav-button:hover {
+  color: white !important;
+  font-weight: bold;
+  transition: 0.2s;
 }
-.container{
-position: absolute;
-  border: 1px solid black;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+
+/* .login {
+  background-color: #faa919;
+} */
+
+.login:hover,
+.register:hover {
+  background-color: #fbd605;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container {
+  /* position: absolute; */
+  /* border: 1px solid black; */
+  margin: -50px auto 0 auto;
+  z-index: 999;
+  /* top: 50%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%); */
   width: 400px;
+  height: auto;
   padding: 10px 20px;
-border-radius: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px rgb(80, 80, 80);
   background-color: #f06290;
   display: inline-block;
 }
-.container h1{
+.container h1 {
   text-align: center;
-  color: whitesmoke
-
-  ;
+  color: whitesmoke;
+  font-family: Rubik, Geneva, sans-serif;
   padding: 0 0 20px 0;
   border-bottom: 1px solid silver;
 }
-.container form{
-  padding : 0 40px;
+.container form {
+  padding: 0 40px;
   box-sizing: border-box;
 }
-.container button{
-  padding : 0 40px;
+.login,
+.register {
+  padding: 0 40px;
+  margin: 2px;
   box-sizing: border-box;
+  outline: none;
+  color: #554d6b;
+  height: 25px;
+  border-radius: 3px;
+  /* border: 1px solid #554d6b; */
+  border: none;
+  box-shadow: 2px 2px 2px rgb(80, 80, 80);
+  background-color: #faa919;
 }
-  .register{
-    background-color: #faa919
-    ;
-} 
- #photo{
-height: 400px;
-width: auto;
-top: -40px;
+
+/* .register {
+  background-color: #faa919;
+} */
+#photo {
+  height: auto;
+  width: 325px;
+  margin: 0px auto 0px auto;
+  /* top: -40px;
 left: 540px;
-position: absolute;
+position: absolute; */
 }
-input{
-  width:100%;
-  background-color:rgb(192, 190, 187);
+
+.googs {
+  display: flex;
+  flex-direction: row;
+  margin: 0px auto;
 }
-form{
-display: flex;
-flex-direction: column;
-justify-content: center;
+
+input {
+  width: 100%;
+  background-color: rgb(232, 229, 227);
+  margin-bottom: 8px;
+  height: 25px;
+  box-shadow: 2px 2px 2px rgb(80, 80, 80);
+  border-radius: 5px;
+  border: 1px solid lightgray;
 }
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 /* .container #buttonRow{
 width: 332px;
 text-align: center;
@@ -69,73 +133,144 @@ text-size-adjust:inherit;
 width: 50%;
 } */
 
-#buttonRow{
-  margin: 0 auto;
+#buttonRow {
+  margin: 3px auto 10px auto;
 }
-#picOne{
-  max-width: 250px; 
-  max-height: 200px;
+
+.hidden {
+  display: none;
 }
-#picTwo{
-  max-width: 250px; 
-  max-height: 200px;
+
+#invalid {
+  color: whitesmoke;
+  align-self: center;
 }
-#picThree{
-  max-width: 250px; 
-  max-height: 200px;
+
+.actionButtons {
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
+  /* max-height: 200px; */
+  margin: 10px;
+  border: 5px solid transparent;
+  box-shadow: 2px 2px 2px rgb(80, 80, 80);
 }
-.imageRow{
+
+.actionButtons:hover {
+  border: 5px solid #f06290;
+  box-shadow: 2px 2px 2px black;
+  transition: 0.2s;
+}
+
+.actionButtons:active,
+.actionButtons:focus {
+  border: 5px solid #fbd704;
+}
+
+#profileDiv {
   display: flex;
- position: absolute;
- top: 570px;
- left: 475px;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
 }
-.petContainer{
-  position: absolute;
+
+#leftColumn {
+  width: 250px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+#invisibleColumn {
+  min-width: 80px;
+  max-width: 200px;
+}
+
+#profileHeader {
+  color: rgb(49, 49, 49);
+}
+
+.actionButtonDiv {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgb(80, 80, 80);
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: Rubik, Geneva, sans-serif;
+}
+
+.actionButtonDiv:hover {
+  color: rgb(132, 132, 132);
+  transition: 0.2s;
+}
+
+.imageRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* position: absolute; */
+  /* top: 570px;
+  left: 475px; */
+}
+.petContainer {
+  /* position: absolute; */
   border: 1px solid black;
-  top: 40%;
+  /* top: 40%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%); */
   width: 530px;
   padding: 10px 20px;
-border-radius: 10px;
-  background-color: black;
+  border-radius: 10px;
+  background-color: rgb(32, 31, 31);
   display: inline-block;
   height: 500px;
 }
-.stats{
+.stats {
   width: 100%;
   max-width: 275px;
-  padding: 0 20px;
-  position: relative;
-  left: 2%;
+  /* padding: 0 20px; */
+  /* position: relative;
+  left: 2%; */
 }
-.stat-name{
+
+.petData {
+  color: rgb(80, 80, 80);
+  margin: 5px 0px;
+}
+
+.stat-name {
   font-size: 18px;
   font-weight: 700;
-  color: black;
+  color: rgb(80, 80, 80);
   text-transform: uppercase;
   margin: 20px 0;
 }
-.stat-bar{
+.stat-bar {
   height: 14px;
-  background:#8b5563;
+  background: #8b5563;
   border-radius: 3px;
 }
-.stat-per{
+.stat-per {
   height: 14px;
   background: #1d7fa8;
   border-radius: 3px;
-  position: relative;
+  /* position: relative; */
 }
-#eatStat{
-  max-width:20%;
+/* #healthStat {
+  max-width: 20%;
+} */
+/* #poopStat {
+  max-width: 35%;
 }
-#poopStat{
-  max-width:35%;
-}
-#playStat{
-  max-width:50%;
+#playStat {
+  max-width: 50%;
+} */
+
+.tooSoon {
+  color: rgba(255, 0, 0, 0.64);
 }
 #cpheader{
   text-align: center;
