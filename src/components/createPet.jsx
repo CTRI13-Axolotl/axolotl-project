@@ -7,7 +7,8 @@ class createPet extends react.Component {
     this.state = {
       createPetUrl: 'http://localhost:3001/api/pets',
       profileUrl: 'http://localhost:9000/',
-      options : ['black', 'blue','brown','calico','creme','gray','seal_point','tabby','white']
+      options : ['black', 'blue','brown','calico','creme','gray','seal_point','tabby','white'],
+      hidden : true,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToUrl = this.navigateToUrl.bind(this);
@@ -22,8 +23,10 @@ class createPet extends react.Component {
     e.preventDefault();
     console.log('submit form', e);
     const name = e.target.form[0].value;
+    // console.log('name in line 26: ', name, name==='')
+    if (name==='') return this.setState({...this.state, hidden: false})
     const pet_type = `${e.target.form[1].value}_${e.target.form[2].value}`;
-    console.log('pet_type', pet_type);
+    // console.log('pet_type', pet_type);
     const player_id = window.sessionStorage.getItem('userId');
     // const player_id=57;
     const petCreaterObj = { name, player_id, pet_type };
@@ -68,6 +71,7 @@ class createPet extends react.Component {
       <div className="createPetDiv">
         <div className="containerCP">
           <h1 id="cpheader">CreatePet</h1>
+          <div className={(this.state.hidden ? 'hidden invalidCreatePet' : 'invalidCreatePet')}>Invalid Input</div>
           <form className="createPetForm">
             <input
               className="petName"
@@ -77,22 +81,12 @@ class createPet extends react.Component {
             />
             <label htmlFor="Pets">Choose a pet:</label>
             <select name="pets" id="pets" onChange={this.handleOption}> 
-              <option value="cat">Cat</option>  {/* //petType = tiger_white */}
+              <option value="cat">Cat</option>  
               <option value="axolotl">Axolotl</option>
             </select>
 
             <label htmlFor="petcolor">Choose a color:</label>
             <select name="petsColor" id="petsColor">
-              {/* <option value="black">Black</option>
-              <option value="blue">Blue</option>
-              <option value="brown">Brown</option>
-              <option value="calico">Calico</option>
-              <option value="cream">Cream</option>
-              <option value="grey">Grey</option>
-              <option value="seal_point">SealPoint</option>
-              <option value="tabby">Tabby</option>
-              <option value="white">White</option>
-              <option value="pink">Pink</option> */}
                {colorsArr} 
             </select>
 
