@@ -34,9 +34,6 @@ export default function Cat(props) {
 
   const [textures, setTextures] = useState([]);
 
-
-
-
   const petType = "cat";
   const petColor = props.color;
 

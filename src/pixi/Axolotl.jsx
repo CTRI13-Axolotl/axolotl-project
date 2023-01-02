@@ -4,10 +4,20 @@ import * as PIXI from 'pixi.js'
 import { generateAtlas, generateAnimation } from './Utilities'
 
 
+import axolotl_bronze from '../assets/spritesheets/axolotl/axolotl_bronze.png';
+import axolotl_coral from '../assets/spritesheets/axolotl/axolotl_coral.png';
+import axolotl_green from '../assets/spritesheets/axolotl/axolotl_green.png';
 import axolotl_pink from '../assets/spritesheets/axolotl/axolotl_pink.png';
+import axolotl_turquoise from '../assets/spritesheets/axolotl/axolotl_turquoise.png';
+import axolotl_violet from '../assets/spritesheets/axolotl/axolotl_violet.png';
 
 const petAssets = {
+  "axolotl_bronze": axolotl_bronze,
+  "axolotl_coral": axolotl_coral,
+  "axolotl_green": axolotl_green,
   "axolotl_pink": axolotl_pink,
+  "axolotl_turquoise": axolotl_turquoise,
+  "axolotl_violet": axolotl_violet,
 }
 
 
