@@ -1,6 +1,5 @@
 const express = require('express');
 const petController = require('../controllers/petController');
-const userController = require('../controllers/userController');
 const router = express.Router();
 
 router.get('/', petController.currentPet, (req, res) => {

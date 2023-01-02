@@ -5,7 +5,6 @@ const userController = require('./controllers/userController');
 const cors = require('cors');
 const { PORT = 3001 } = process.env;
 const app = express();
-const petController = require('./Controllers/petController.js');
 
 app.use(cors());
 // Middleware that parses json and looks at requests where the Content-Type header matches the type option.

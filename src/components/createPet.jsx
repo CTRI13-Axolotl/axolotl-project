@@ -1,6 +1,5 @@
 import react from 'react';
 import axios from 'axios';
-import { useEffect } from 'react';
 class createPet extends react.Component {
   constructor(props, context) {
     super(props, context);

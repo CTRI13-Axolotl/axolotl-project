@@ -1,15 +1,14 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ReactDOM from 'react-dom';
-import './index.scss';
-
-import App from './App';
 
 import Root from './components/root.jsx';
 import Error from './components/error.jsx';
 import Profile from './components/profile.jsx';
 import Login from './components/login.jsx';
 import CreatePet from './components/createPet';
+
+import './styles.css';
 
 const router = createBrowserRouter([
   {
