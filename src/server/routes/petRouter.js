@@ -19,6 +19,10 @@ router.put('/clean', petController.cleanPet, (req, res) => {
   res.status(200).json(res.locals.cleanPet);
 });
 
+router.put('/update', petController.updatePet, (req, res) => {
+  res.status(200).json(res.locals.updatePet);
+});
+
 //may not need this route
 router.put('/poops', petController.poops, (req, res) => {
   res.status(200).json(res.locals.poops);
