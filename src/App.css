@@ -389,3 +389,8 @@ align-items: center;
 display:flex;
 
 }
+.invalidCreatePet{
+  text-align: center;
+  color: rgb(223, 241, 15);
+  
+}
