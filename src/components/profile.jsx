@@ -137,7 +137,7 @@ function Profile() {
       </div>
       <div id="rightColumn">
         <div className="petContainer">
-          <Pixi petType={petType} numPoop={numPoop} />
+          <Pixi petType={petType} numPoop={numPoop} xDate={xDate}/>
         </div>
         <div className={xDate.abandonClass}>
           <div className="abandonText">{petName} has abandoned you</div>
