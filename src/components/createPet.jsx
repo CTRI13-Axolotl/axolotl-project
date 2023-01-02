@@ -7,9 +7,11 @@ class createPet extends react.Component {
     this.state = {
       createPetUrl: 'http://localhost:3001/api/pets',
       profileUrl: 'http://localhost:9000/',
+      options : ['black', 'blue','brown','calico','creme','gray','seal_point','tabby','white']
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToUrl = this.navigateToUrl.bind(this);
+    this.handleOption = this.handleOption.bind(this)
   }
 
   navigateToUrl(url) {
@@ -38,7 +40,30 @@ class createPet extends react.Component {
       });
   }
 
+  handleOption(e){
+    e.preventDefault();
+    const petType = e.target.value;
+    if (petType === 'cat'){
+      const catColors = ['black', 'blue','brown','calico','creme','gray','seal_point','tabby','white']
+      this.setState({...this.state,options: catColors});
+    }
+    if(petType === 'axolotl'){
+      const axColors = ['bronze','coral','green','pink','turquoise','violet']
+      this.setState({...this.state,options: axColors});
+    }
+    // bronze
+    // coral
+    // green
+    // pink
+    // turquoise
+    // violet
+  }
+
   render() {
+    const colorsArr = [];
+    for (let i = 0; i < this.state.options.length; i++){
+      colorsArr.push(<option value={`${this.state.options[i]}`}>{`${this.state.options[i]}`}</option>)
+    }
     return (
       <div>
         <div className="containerCP">
@@ -51,22 +76,24 @@ class createPet extends react.Component {
               placeholder="petName..."
             />
             <label htmlFor="Pets">Choose a pet:</label>
-            <select name="pets" id="pets"> 
-              <option value="cat">Cat</option>  //petType = tiger_white
+            <select name="pets" id="pets" onChange={this.handleOption}> 
+              <option value="cat">Cat</option>  {/* //petType = tiger_white */}
               <option value="axolotl">Axolotl</option>
             </select>
-            <label htmlFor="petcolor">Choose a pets color:</label>
+
+            <label htmlFor="petcolor">Choose a color:</label>
             <select name="petsColor" id="petsColor">
-              <option value="black">Black</option>
+              {/* <option value="black">Black</option>
               <option value="blue">Blue</option>
               <option value="brown">Brown</option>
               <option value="calico">Calico</option>
               <option value="cream">Cream</option>
               <option value="grey">Grey</option>
-              <option value="sealpoint">SealPoint</option>
+              <option value="seal_point">SealPoint</option>
               <option value="tabby">Tabby</option>
               <option value="white">White</option>
-              <option value="pink">Pink</option>
+              <option value="pink">Pink</option> */}
+               {colorsArr} 
             </select>
 
             <button className="confirm" onClick={this.handleSubmit}>

@@ -309,7 +309,6 @@ width: 50%;
 #pets{
 background-color: #faa919;
 max-width: 100px;
-margin-top: 15%;
 }
 .petName{
   max-width: 200px;
@@ -318,8 +317,8 @@ margin-top: 15%;
 }
 .confirm{
 background-color: #faa919;
-min-width: 150px;
-margin-left: 27%;
+max-width: 130px;
+
 }
 .containerCP{
   position: absolute;
@@ -335,12 +334,12 @@ border-radius: 10px;
   display: inline-block;
 }
 .goat{
-max-width: 300px;
-max-height: 150px;
+min-width: 175px;
+max-height: 140px;
 }
 .geico{
-  max-width: 300px;
-max-height: 150px;
+  min-width: 175px;
+max-height: 140px;
 }
 .family{
   min-width: 120px;
@@ -354,5 +353,5 @@ text-align: center;
  #picsForCreate{
 align-items: center;
 display:flex;
-margin-left: -5px;
+
 }
