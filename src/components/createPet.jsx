@@ -65,15 +65,15 @@ class createPet extends react.Component {
       colorsArr.push(<option value={`${this.state.options[i]}`}>{`${this.state.options[i]}`}</option>)
     }
     return (
-      <div>
+      <div className="createPetDiv">
         <div className="containerCP">
           <h1 id="cpheader">CreatePet</h1>
-          <form>
+          <form className="createPetForm">
             <input
               className="petName"
               type="petName"
               name="petName"
-              placeholder="petName..."
+              placeholder="Enter a pet name..."
             />
             <label htmlFor="Pets">Choose a pet:</label>
             <select name="pets" id="pets" onChange={this.handleOption}> 
