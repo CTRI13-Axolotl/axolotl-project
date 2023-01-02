@@ -15,7 +15,7 @@ class Login extends react.Component {
       loginURL: 'http://localhost:3001/login',
       profileUrl: 'http://localhost:9000/',
       //Update URL below to the appropriate Create Pet URL
-      createPetUrl: 'http://localhost:9000/',
+      createPetUrl: 'http://localhost:9000/createPet',
       invalid: 'hidden',
     };
 

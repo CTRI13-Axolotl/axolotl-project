@@ -334,15 +334,15 @@ border-radius: 10px;
   display: inline-block;
 }
 .goat{
-max-width: 200px;
+max-width: 150px;
 max-height: 200px;
 }
 .geico{
-  max-width: 200px;
+  max-width: 150px;
 max-height: 200px;
 }
 .family{
-  min-width: 400px;
+  min-width: 150px;
   max-height: 250px;
 }
 #petsColor{
