@@ -11,12 +11,14 @@ import Explosion from './Explosion';
 
 import catBackground from '../assets/backgrounds/cat_background.jpg';
 import axolotlBackground from '../assets/backgrounds/axolotl_background.jpg';
+import explosionBackground from '../assets/backgrounds/explosion_background.jpg'
 
 import poopSprite from '../assets/poop_sprite.png';
 
 const backgrounds = {
   'cat': catBackground,
   'axolotl': axolotlBackground,
+  'explosion': explosionBackground,
 }
 
 const getWidth = () => {
