@@ -134,7 +134,7 @@ function Profile() {
         </div>
         <div className={xDate.imageRowClass}>
           <div id="EatButton" className="actionButtonDiv">
-            Eat
+            Feed
             <img
               className="actionButtons"
               id="picOne"
