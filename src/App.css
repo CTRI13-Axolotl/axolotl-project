@@ -138,7 +138,7 @@ width: 50%;
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 #invalid {
@@ -271,6 +271,36 @@ width: 50%;
 
 .tooSoon {
   color: rgba(255, 0, 0, 0.64);
+}
+
+.abandon {
+  display: flex;
+  flex-direction: column;
+  /* margin: 0 auto; */
+  justify-content: center;
+  align-items: center;
+}
+
+.abandonText {
+  font-size: 2.5rem;
+  color: rgba(216, 28, 28, 0.724);
+}
+
+.newPetButton {
+  outline: none;
+  border: 3px solid rgba(0, 0, 0, 0.657);
+  height: 2.5rem;
+  border-radius: 5px;
+  font-family: Rubik, Geneva, sans-serif;
+  font-size: larger;
+  background-color: #554d6b;
+  color: whitesmoke;
+}
+
+.newPetButton:hover,
+.newPetButton:active,
+.newPetButton:focus {
+  background-color: #554d6bc3;
 }
 #cpheader{
   text-align: center;
