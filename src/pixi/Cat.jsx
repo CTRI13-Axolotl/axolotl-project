@@ -25,7 +25,7 @@ const petAssets = {
   "cat_white": cat_white,
 }
 
-export default function Cat() {
+export default function Cat(props) {
   
 
   console.log('making cat frames')
@@ -38,7 +38,7 @@ export default function Cat() {
 
 
   const petType = "cat";
-  const petColor = "black";
+  const petColor = props.color;
 
   const pet = `${petType}_${petColor}`;
 
@@ -77,6 +77,9 @@ export default function Cat() {
       textures={textures}
       animationSpeed={0.1}
       isPlaying={true}
+      anchor={-1.5}
+      // x={-30}
+      x={300}
     />
   )
 }

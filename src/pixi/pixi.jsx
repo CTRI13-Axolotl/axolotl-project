@@ -9,11 +9,6 @@ import Cat from './Cat';
 
 import catBackground from '../assets/backgrounds/cat_background.jpg';
 
-
-const petComponents = {
-  'cat': <Cat />,
-}
-
 const backgrounds = {
   'cat': catBackground,
 }
@@ -26,18 +21,27 @@ const getHeight = () => {
   return 320;
 }
 
-const getPets = (petType) => {
-  const pet = petComponents[petType];
+const getPets = (petSpecies, petColor) => {
+
+  const petComponents = {
+    'cat': <Cat color={petColor} />,
+  }
+
+  const pet = petComponents[petSpecies];
   return pet;
 }
 
 
-export default function Pixi() {
-  const petType = 'cat';
+export default function Pixi(props) {
+  console.log('props in line 36: ', props)
+
+  const petType = props.petType.split('_');
+  const petSpecies = petType[0];
+  const petColor = petType[1];
 
   const width = getWidth();
   const height = getHeight();
-  const pets = getPets(petType);
+  const pets = getPets(petSpecies, petColor);
   // const background = getBackground(petType, width, height);
 
   return (
@@ -49,7 +53,7 @@ export default function Pixi() {
         antialias: true,
         autoDensity: true,
       }}>
-        <Sprite image={backgrounds[petType]} x={0} y={0} width={width} height={height} />
+        <Sprite image={backgrounds[petSpecies]} x={0} y={0} width={width} height={height} />
         { pets }
     </Stage>
   )

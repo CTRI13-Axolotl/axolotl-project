@@ -9,7 +9,7 @@ function Profile() {
   const [health, setHealth] = useState(0);
   const [userId, setUserId] = useState('');
   const [birthday, setBirthday] = useState('');
-  const [petType, setPetType] = useState('');
+  const [petType, setPetType] = useState('cat_white');
   const [petId, setPetId] = useState('');
   const [numPoop, setNumPoop] = useState(0);
   const [xDate, setXDate] = useState('');
@@ -22,7 +22,7 @@ function Profile() {
   useEffect(() => {
     //userId is in session storage, getItem will get the value in session storage
     const newUserId = window.sessionStorage.getItem('userId');
-    //update state with the current userId
+    // //update state with the current userId
     setUserId(newUserId);
     //when making a get request to axios, the data you want to send needs to be
     //in an object with the property params
@@ -72,6 +72,7 @@ function Profile() {
         console.log('ERROR: ', error);
       });
   };
+  console.log(petType);
 
   return (
     <div id="profileDiv">
@@ -103,7 +104,7 @@ function Profile() {
       </div>
       <div id="rightColumn">
         <div className="petContainer">
-          <Pixi />
+          <Pixi petType={petType} />
         </div>
         <div className="imageRow">
           <div id="EatButton" className="actionButtonDiv">
