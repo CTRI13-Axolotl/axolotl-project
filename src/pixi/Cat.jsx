@@ -30,7 +30,6 @@ const petAssets = {
 
 // Create Cat component to render
 export default function Cat(props) {
-  console.log(props);
 
   // console.log('making cat frames')
   const app = useApp();
