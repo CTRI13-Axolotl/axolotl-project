@@ -3,13 +3,15 @@ import { Sprite } from '@inlet/react-pixi';
 import { Stage, AnimatedSprite, useApp, useTick } from '@inlet/react-pixi';
 import react, { useState, useRef } from 'react';
 import { Loader } from '@pixi/loaders';
-import { generateAtlas, generateAnimation } from './Utilities.jsx';
+import { getRandomX } from './Utilities.jsx';
 
 import Cat from './Cat';
 import Axolotl from './Axolotl';
 
 import catBackground from '../assets/backgrounds/cat_background.jpg';
 import axolotlBackground from '../assets/backgrounds/axolotl_background.jpg';
+
+import poopSprite from '../assets/poop_sprite.png';
 
 const backgrounds = {
   'cat': catBackground,
@@ -35,6 +37,17 @@ const getPets = (petSpecies, petColor) => {
   return pet;
 }
 
+const getPoops = (numPoops) => {
+  console.log("poops", numPoops);
+  const poops = [];
+
+  for (let i = 0; i < numPoops; i++) {
+    poops.push(<Sprite image={poopSprite} anchor={-8} x={getRandomX(-200, 300)} />);
+  }
+
+  return poops;
+}
+
 
 export default function Pixi(props) {
 
@@ -51,6 +64,8 @@ export default function Pixi(props) {
   const pets = getPets(petSpecies, petColor);
   // const background = getBackground(petType, width, height);
 
+  const poops = getPoops(props.numPoop);
+
   return (
     <Stage 
       width={630} 
@@ -61,6 +76,7 @@ export default function Pixi(props) {
         autoDensity: true,
       }}>
         <Sprite image={backgrounds[petSpecies]} x={0} y={0} width={width} height={height} />
+        { poops }
         { pets }
     </Stage>
   )

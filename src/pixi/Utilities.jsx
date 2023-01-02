@@ -52,3 +52,8 @@ export const generateAnimation = (atlas, animationName, animationWidth, animatio
   console.log(atlas.animations);
   atlas.animations[animationName] = frames;
 }
+
+export const getRandomX = (lowerBound, upperBound) => {
+  const random = Math.floor(Math.random() * 500) - 200;
+  return random;
+}
