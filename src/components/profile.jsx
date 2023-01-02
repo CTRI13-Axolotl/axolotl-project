@@ -88,14 +88,23 @@ function Profile() {
       .put('http://localhost:3001/api/pets/update', { petId: petId })
       .then((res) => {
         console.log(res.data);
-        return window.location.assign('http://localhost:9000/login');
+        return window.location.assign('http://localhost:9000/createPet');
       })
       .catch((error) => {
         console.log('ERROR: ', error);
         return window.location.assign('http://localhost:9000/login');
       });
   };
-  console.log('petType in line 98: ', petType);
+
+  const fixPetType = () => {
+    if (petType.includes('_')) {
+      const newPetType = petType.split('_')[0];
+      return newPetType;
+    } else {
+      return petType;
+    }
+  };
+  // console.log('petType in line 98: ', petType);
   return (
     <div id="profileDiv">
       <div id="leftColumn">
@@ -107,7 +116,7 @@ function Profile() {
           Birthday: {birthday}
         </h3>
         <h3 id="birthdate" className="petData">
-          Type: {petType}
+          Type: {fixPetType()}
         </h3>
         <div className="stats">
           <div className="eating">
@@ -127,7 +136,7 @@ function Profile() {
       <div id="rightColumn">
         <div className="petContainer"></div>
         <div className={xDate.abandonClass}>
-          <div className="abandonText">{petName} Has Abandoned You</div>
+          <div className="abandonText">{petName} has abandoned you</div>
           <button onClick={handleNewPet} className="newPetButton">
             Create New Pet
           </button>
