@@ -302,3 +302,57 @@ width: 50%;
 .newPetButton:focus {
   background-color: #554d6bc3;
 }
+#cpheader{
+  text-align: center;
+  color: rgb(240, 242, 244)
+}
+#pets{
+background-color: #faa919;
+max-width: 100px;
+margin-top: 15%;
+}
+.petName{
+  max-width: 200px;
+  background-color:#f0eeed;
+  text-decoration-color: black;
+}
+.confirm{
+background-color: #faa919;
+min-width: 150px;
+margin-left: 27%;
+}
+.containerCP{
+  position: absolute;
+  border: 1px solid black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 400px;
+  padding: 10px 20px;
+border-radius: 10px;
+  background-color: #f06290;
+  display: inline-block;
+}
+.goat{
+max-width: 200px;
+max-height: 200px;
+}
+.geico{
+  max-width: 200px;
+max-height: 200px;
+}
+.family{
+  min-width: 400px;
+  max-height: 250px;
+}
+#petsColor{
+  background-color: #faa919;
+max-width: 100px;
+text-align: center;
+}
+#warning{
+color: #f0eeed;
+text-align: center;
+font-size: 16px;
+font-family: cursive;
+}
