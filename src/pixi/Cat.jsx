@@ -3,6 +3,8 @@ import { useRef, useState } from 'react';
 import * as PIXI from 'pixi.js';
 import { generateAtlas, generateAnimation } from './Utilities';
 
+
+// Import cat spritesheets for each color
 import cat_black from '../assets/spritesheets/cat/cat_black.png';
 import cat_blue from '../assets/spritesheets/cat/cat_blue.png';
 import cat_brown from '../assets/spritesheets/cat/cat_brown.png';
@@ -13,6 +15,7 @@ import cat_seal_point from '../assets/spritesheets/cat/cat_seal_point.png';
 import cat_tabby from '../assets/spritesheets/cat/cat_tabby.png';
 import cat_white from '../assets/spritesheets/cat/cat_white.png';
 
+// Object for holding references to spritesheets to easily access the correct one
 const petAssets = {
   "cat_black": cat_black,
   "cat_blue": cat_blue,
@@ -25,10 +28,11 @@ const petAssets = {
   "cat_white": cat_white,
 }
 
+// Create Cat component to render
 export default function Cat(props) {
   
 
-  console.log('making cat frames')
+  // console.log('making cat frames')
   const app = useApp();
   const willMount = useRef(true);
 
@@ -39,9 +43,16 @@ export default function Cat(props) {
 
   const pet = `${petType}_${petColor}`;
 
-
+  // Generate atlas for cat spritesheet format
   const atlas = generateAtlas(128, 672, pet, 0.25);
-  console.log(atlas)
+
+  // console.log(atlas);
+
+  /* 
+   * Add animations to the cat atlas object
+   * 
+   * See generateAnimation notes for making this more efficient and readable
+   */
   generateAnimation(atlas, "walk_left", 32, 32, 4, 1, 13, 4);
   generateAnimation(atlas, "walk_left2", 32, 32, 4, 1, 13, 4);
   generateAnimation(atlas, "sit_down", 32, 32, 4, 2, 4, 6);
@@ -54,29 +65,23 @@ export default function Cat(props) {
   generateAnimation(atlas, "lay_delay2", 32, 32, 1, 1, 2, 1);
   generateAnimation(atlas, "lay_delay3", 32, 32, 1, 1, 2, 1);
   generateAnimation(atlas, "lay_delay4", 32, 32, 1, 1, 2, 1);
-  // generateAnimation(atlas, "stand_up", 32, 32, 4, 3, 0, 9);
 
-  console.log("atlas: ", atlas)
+  // console.log("atlas: ", atlas)
 
+  // load spritesheet with provided information
   const loadSpritesheet = () => {
-    console.log('inside load spritesheet')
-      const baseTexture = PIXI.BaseTexture.from(petAssets[pet]);
-      const spritesheet = new PIXI.Spritesheet(baseTexture, atlas);
-      spritesheet.parse(() => {
-          setTextures( Object.keys(spritesheet.textures).map((t) => spritesheet.textures[t]));
-      });
+    const baseTexture = PIXI.BaseTexture.from(petAssets[pet]);
+    const spritesheet = new PIXI.Spritesheet(baseTexture, atlas);
+    // parse spritesheet to a frame loop
+    spritesheet.parse(() => {
+        setTextures( Object.keys(spritesheet.textures).map((t) => spritesheet.textures[t]));
+    });
   }
 
-  console.log('before willmount')
   if (willMount.current) {
-    console.log('inside willmount')
     loadSpritesheet();
-    console.log('after loadsheet')
     willMount.current = false;
   }
-
-  // console.log('start textures: ', textures)
-  // console.log('end textures: ', textures)
 
   return (
     <AnimatedSprite

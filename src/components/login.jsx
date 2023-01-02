@@ -1,7 +1,5 @@
 import react from 'react';
 import LoginButton from './Glogin';
-import LogoutButton from './Glogout';
-import { useEffect } from 'react';
 import { gapi } from 'gapi-script';
 import axios from 'axios';
 
