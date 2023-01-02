@@ -23,14 +23,14 @@ const petAssets = {
   "cat_calico": cat_calico,
   "cat_creme": cat_creme,
   "cat_gray": cat_gray,
-  "cat_seal_point": cat_seal_point,
+  "cat_seal": cat_seal_point,
   "cat_tabby": cat_tabby,
   "cat_white": cat_white,
 }
 
 // Create Cat component to render
 export default function Cat(props) {
-  
+  console.log(props);
 
   // console.log('making cat frames')
   const app = useApp();
