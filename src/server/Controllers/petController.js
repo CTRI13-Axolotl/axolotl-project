@@ -116,18 +116,12 @@ petController.currentPet = async (req, res, next) => {
   const { player_id } = req.query;
   // console.log('player_id in currentPet controller', player_id);
   try {
-    //query to set current to false if x_date is not null
-    // const curPetsUpdateQ =
-    //   'UPDATE pet SET current = CASE WHEN x_date IS NOT NULL THEN false ELSE TRUE END WHERE player_id=$1 RETURNING *;';
-    // const curPetsUpdate = await db.query(curPetsUpdateQ, [player_id]);
-
     //query to update x_date if pet has not been fed, cleaned, or played with for over 24 hours
-    //also update health by subtracting 20 points for each interval where last fed is > 12 hours
-    //last cleaned > 8 hours and/or last played > 8 hours
+    //also update health by subtracting 5 points for each interval where last fed is > 2 hours
+    //last cleaned > 1 hours and/or last played > 1 hours
     const xDateQuery =
-      "UPDATE pet SET x_date = CASE WHEN age(current_timestamp, last_cleaned) > interval '24 hours' OR age(current_timestamp, last_played) > interval '24 hours' OR age(current_timestamp, last_fed) > interval '24 hours' THEN CURRENT_TIMESTAMP ELSE x_date END, health = CASE WHEN age(current_timestamp, last_cleaned) > interval '24 hours' OR age(current_timestamp, last_played) > interval '24 hours' OR age(current_timestamp, last_fed) > interval '24 hours' THEN 0 WHEN ((FLOOR(EXTRACT(EPOCH FROM current_timestamp-last_cleaned)/3600/8) + FLOOR(EXTRACT(EPOCH FROM current_timestamp-last_played)/3600/8) + FLOOR(EXTRACT(EPOCH FROM current_timestamp-last_fed)/3600/12))*20) > (100-health) THEN GREATEST(100-((FLOOR(EXTRACT(EPOCH FROM current_timestamp-last_cleaned)/3600/8) + FLOOR(EXTRACT(EPOCH FROM current_timestamp-last_played)/3600/8) + FLOOR(EXTRACT(EPOCH FROM current_timestamp-last_fed)/3600/12))*20),0) ELSE health END, num_poop = CASE WHEN FLOOR(EXTRACT(EPOCH FROM current_timestamp-last_cleaned)/3600/8) > num_poop THEN FLOOR(EXTRACT(EPOCH FROM current_timestamp-last_cleaned)/3600/8) ELSE num_poop END WHERE player_id=$1 RETURNING *;";
+      "UPDATE pet SET x_date = CASE WHEN age(current_timestamp, last_cleaned) > interval '24 hours' OR age(current_timestamp, last_played) > interval '24 hours' OR age(current_timestamp, last_fed) > interval '24 hours' THEN CURRENT_TIMESTAMP ELSE x_date END, health = CASE WHEN age(current_timestamp, last_cleaned) > interval '24 hours' OR age(current_timestamp, last_played) > interval '24 hours' OR age(current_timestamp, last_fed) > interval '24 hours' THEN 0 WHEN ((FLOOR(EXTRACT(EPOCH FROM current_timestamp-last_cleaned)/3600/1) + FLOOR(EXTRACT(EPOCH FROM current_timestamp-last_played)/3600/1) + FLOOR(EXTRACT(EPOCH FROM current_timestamp-last_fed)/3600/1))*5) > (100-health) THEN GREATEST(100-((FLOOR(EXTRACT(EPOCH FROM current_timestamp-last_cleaned)/3600/1) + FLOOR(EXTRACT(EPOCH FROM current_timestamp-last_played)/3600/1) + FLOOR(EXTRACT(EPOCH FROM current_timestamp-last_fed)/3600/1))*5),0) ELSE health END, num_poop = CASE WHEN FLOOR(EXTRACT(EPOCH FROM current_timestamp-last_cleaned)/3600/1) > num_poop THEN FLOOR(EXTRACT(EPOCH FROM current_timestamp-last_cleaned)/3600/1) ELSE num_poop END WHERE player_id=$1 RETURNING *;";
     const xData = await db.query(xDateQuery, [player_id]);
-
     //query to update x_date to current time stamp if health is 0
     const healthQuery =
       'UPDATE pet SET x_date = CASE WHEN health=0 THEN CURRENT_TIMESTAMP ELSE x_date END WHERE player_id=$1 RETURNING *;';
