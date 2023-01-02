@@ -136,7 +136,7 @@ function Profile() {
       </div>
       <div id="rightColumn">
         <div className="petContainer">
-          <Pixi petType={petType} numPoop={numPoop} xDate={xDate}/>
+          <Pixi petType={petType} numPoop={numPoop} xDate={xDate} />
         </div>
         <div className={xDate.abandonClass}>
           <div className="abandonText">{petName} has abandoned you</div>
@@ -144,7 +144,7 @@ function Profile() {
             Create New Pet
           </button>
         </div>
-        <div className="imageRow">
+        <div className={xDate.imageRowClass}>
           <div id="EatButton" className="actionButtonDiv">
             Feed
             <img
