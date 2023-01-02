@@ -43,6 +43,7 @@ export default function Cat(props) {
   const atlas = generateAtlas(128, 672, pet, 0.25);
   console.log(atlas)
   generateAnimation(atlas, "walk_left", 32, 32, 4, 1, 13, 4);
+  generateAnimation(atlas, "walk_left2", 32, 32, 4, 1, 13, 4);
   generateAnimation(atlas, "sit_down", 32, 32, 4, 2, 4, 6);
   generateAnimation(atlas, "sit_idle", 32, 32, 4, 1, 3, 4);
   generateAnimation(atlas, "sit_play", 32, 32, 4, 5, 16, 20);
@@ -51,6 +52,8 @@ export default function Cat(props) {
   generateAnimation(atlas, "lay_down", 32, 32, 4, 3, 0, 9);
   generateAnimation(atlas, "lay_delay1", 32, 32, 1, 1, 2, 1);
   generateAnimation(atlas, "lay_delay2", 32, 32, 1, 1, 2, 1);
+  generateAnimation(atlas, "lay_delay3", 32, 32, 1, 1, 2, 1);
+  generateAnimation(atlas, "lay_delay4", 32, 32, 1, 1, 2, 1);
   // generateAnimation(atlas, "stand_up", 32, 32, 4, 3, 0, 9);
 
   console.log("atlas: ", atlas)
