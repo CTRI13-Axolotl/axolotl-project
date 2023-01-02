@@ -1,4 +1,3 @@
-import { Outlet } from 'react-router';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Pixi from '../pixi/pixi';
@@ -38,7 +37,6 @@ function Profile() {
       .then((res) => {
         //store all petData in state
         const petData = res.data[0];
-        // console.log(res.data[0]);
         setPetName(petData.name);
         const birthdate = new Date(petData.birthdate);
         setBirthday(birthdate.toLocaleDateString());
@@ -82,7 +80,8 @@ function Profile() {
         console.log('ERROR: ', error);
       });
   };
-  console.log(petType);
+  
+  // console.log(petType);
 
   const handleNewPet = (e) => {
     e.preventDefault();

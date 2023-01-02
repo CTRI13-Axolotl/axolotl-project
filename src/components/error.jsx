@@ -1,4 +1,3 @@
-import { Outlet } from "react-router";
 import Root from './root.jsx'
 
 export default function Error (){
