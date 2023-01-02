@@ -327,32 +327,32 @@ margin-left: 27%;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  width: 400px;
+  max-height: 400px;
+  width: 350px;
   padding: 10px 20px;
 border-radius: 10px;
   background-color: #f06290;
   display: inline-block;
 }
 .goat{
-max-width: 150px;
-max-height: 200px;
+max-width: 300px;
+max-height: 150px;
 }
 .geico{
-  max-width: 150px;
-max-height: 200px;
+  max-width: 300px;
+max-height: 150px;
 }
 .family{
-  min-width: 150px;
-  max-height: 250px;
+  min-width: 120px;
+  max-height: 150px;
 }
 #petsColor{
   background-color: #faa919;
 max-width: 100px;
 text-align: center;
 }
-#warning{
-color: #f0eeed;
-text-align: center;
-font-size: 16px;
-font-family: cursive;
+ #picsForCreate{
+align-items: center;
+display:flex;
+margin-left: -5px;
 }

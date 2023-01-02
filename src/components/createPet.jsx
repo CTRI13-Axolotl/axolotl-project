@@ -51,18 +51,22 @@ class createPet extends react.Component {
               placeholder="petName..."
             />
             <label htmlFor="Pets">Choose a pet:</label>
-            <select name="pets" id="pets">
-              <option value="tiger">Tiger</option> //petType = tiger_white
-              <option value="cat">Cat</option>
+            <select name="pets" id="pets"> 
+              <option value="cat">Cat</option>  //petType = tiger_white
               <option value="axolotl">Axolotl</option>
-              <option value="dog">Dog</option>
             </select>
             <label htmlFor="petcolor">Choose a pets color:</label>
             <select name="petsColor" id="petsColor">
-              <option value="white">White</option>
               <option value="black">Black</option>
+              <option value="blue">Blue</option>
+              <option value="brown">Brown</option>
+              <option value="calico">Calico</option>
+              <option value="cream">Cream</option>
+              <option value="grey">Grey</option>
+              <option value="sealpoint">SealPoint</option>
+              <option value="tabby">Tabby</option>
+              <option value="white">White</option>
               <option value="pink">Pink</option>
-              <option value="ruby">Ruby</option>
             </select>
 
             <button className="confirm" onClick={this.handleSubmit}>
@@ -78,11 +82,6 @@ class createPet extends react.Component {
                 className="geico"
                 src="https://www.bellacor.com/dw/image/v2/BFKX_PRD/on/demandware.static/-/Sites-masterCatalog_bellacor/default/dwade4b922/images/large/599ARTAC0288RV2.jpg?sw=600"
                 alt="geico"
-              />
-              <img
-                className="family"
-                src="https://i.etsystatic.com/7829877/r/il/4d214e/838807260/il_794xN.838807260_i8v4.jpg"
-                alt="family"
               />
             </div>
           </form>
