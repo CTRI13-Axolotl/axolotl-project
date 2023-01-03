@@ -10,6 +10,7 @@ import axolotl_green from '../assets/spritesheets/axolotl/axolotl_green.png';
 import axolotl_pink from '../assets/spritesheets/axolotl/axolotl_pink.png';
 import axolotl_turquoise from '../assets/spritesheets/axolotl/axolotl_turquoise.png';
 import axolotl_violet from '../assets/spritesheets/axolotl/axolotl_violet.png';
+import axolotl_yellow from '../assets/spritesheets/axolotl/axolotl_yellow.png';
 
 const petAssets = {
   "axolotl_bronze": axolotl_bronze,
@@ -18,6 +19,7 @@ const petAssets = {
   "axolotl_pink": axolotl_pink,
   "axolotl_turquoise": axolotl_turquoise,
   "axolotl_violet": axolotl_violet,
+  "axolotl_yellow": axolotl_yellow,
 }
 
 

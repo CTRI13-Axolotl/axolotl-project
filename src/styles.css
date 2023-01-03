@@ -54,7 +54,8 @@ body {
 .container {
   /* position: absolute; */
   /* border: 1px solid black; */
-  margin: -50px auto 0 auto;
+  margin: -50px auto 30px auto;
+  align-self: center;
   z-index: 999;
   /* top: 50%;
   left: 50%; */
@@ -302,21 +303,21 @@ width: 50%;
 .newPetButton:focus {
   background-color: #554d6bc3;
 }
-#cpheader{
+#cpheader {
   text-align: center;
-  color: rgb(240, 242, 244)
+  color: rgb(240, 242, 244);
 }
-#pets{
-background-color: #faa919;
-max-width: 100px;
+#pets {
+  background-color: #faa919;
+  max-width: 100px;
 }
-.petName{
+.petName {
   max-width: 200px;
-  background-color:#f0eeed;
+  background-color: #f0eeed;
   text-decoration-color: black;
 }
-.confirm{
-/* background-color: #faa919;
+.confirm {
+  /* background-color: #faa919;
 max-width: 130px; */
   /* margin: 10px; */
   padding: 0 40px;
@@ -332,16 +333,18 @@ max-width: 130px; */
   background-color: #faa919;
 }
 
-.confirm:hover, .confirm:active, .confirm:focus {
+.confirm:hover,
+.confirm:active,
+.confirm:focus {
   background-color: #fbd605;
 }
 
-.createPetDiv{
+.createPetDiv {
   display: flex;
   justify-content: center;
 }
 
-.containerCP{
+.containerCP {
   /* position: absolute; */
   border: 1px solid black;
   margin: 50px;
@@ -355,42 +358,39 @@ max-width: 130px; */
   max-height: 400px;
   width: 350px;
   padding: 10px 20px;
-border-radius: 10px;
+  border-radius: 10px;
   background-color: #f06290;
   display: inline-block;
 }
 
-.createPetForm{
+.createPetForm {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-
-.goat{
-min-width: 175px;
-max-height: 140px;
-}
-.geico{
+.goat {
   min-width: 175px;
-max-height: 140px;
+  max-height: 140px;
 }
-.family{
+.geico {
+  min-width: 175px;
+  max-height: 140px;
+}
+.family {
   min-width: 120px;
   max-height: 150px;
 }
-#petsColor{
+#petsColor {
   background-color: #faa919;
-max-width: 100px;
-text-align: center;
+  max-width: 100px;
+  text-align: center;
 }
- #picsForCreate{
-align-items: center;
-display:flex;
-
+#picsForCreate {
+  align-items: center;
+  display: flex;
 }
-.invalidCreatePet{
+.invalidCreatePet {
   text-align: center;
   color: rgb(223, 241, 15);
-  
 }
