@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Pixi from '../pixi/pixi';
+import YoutubeEmbed from './rickroll.jsx';
 
 function Profile() {
   //setting up state with all the petData
@@ -16,6 +17,8 @@ function Profile() {
     imageRowClass: 'imageRow',
     abandonClass: 'hidden',
   });
+  const [rick, setRick] = useState(false);
+
   //tooSoon will toggle a hidden class. if eat clean or play buttons
   //are pressed within 1 hr, the text "too soon to <action here>" will appear
   const [tooSoon, setTooSoon] = useState('tooSoon hidden');
@@ -38,6 +41,9 @@ function Profile() {
         //store all petData in state
         const petData = res.data[0];
         setPetName(petData.name);
+        if (petData.name === 'Rick Astley') {
+          setRick(true);
+        }
         const birthdate = new Date(petData.birthdate);
         setBirthday(birthdate.toLocaleDateString());
         setNumPoop(petData.num_poop);
@@ -80,7 +86,7 @@ function Profile() {
         console.log('ERROR: ', error);
       });
   };
-  
+
   // console.log(petType);
 
   const handleNewPet = (e) => {
@@ -135,6 +141,9 @@ function Profile() {
         </div>
       </div>
       <div id="rightColumn">
+        <div className={rick ? 'video-responsive' : 'hidden'}>
+          <YoutubeEmbed embedId="dQw4w9WgXcQ" />
+        </div>
         <div className="petContainer">
           <Pixi petType={petType} numPoop={numPoop} xDate={xDate} />
         </div>
