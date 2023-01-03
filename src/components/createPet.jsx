@@ -50,7 +50,7 @@ class createPet extends react.Component {
       this.setState({...this.state,options: catColors});
     }
     if(petType === 'axolotl'){
-      const axColors = ['bronze','coral','green','pink','turquoise','violet']
+      const axColors = ['bronze','coral','green','pink','turquoise','violet','yellow']
       this.setState({...this.state,options: axColors});
     }
     // bronze
